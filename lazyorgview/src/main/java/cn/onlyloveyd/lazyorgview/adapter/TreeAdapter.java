@@ -21,7 +21,6 @@ import java.util.List;
 public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder> {
 
   private List<TreeNode> data;
-  private RecyclerView parentRecyclerView;
   private LazyOrgConfig config;
 
   public TreeAdapter(List<TreeNode> datas, LazyOrgConfig orgConfig) {
@@ -32,7 +31,6 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder
 
   @Override
   public TreeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    parentRecyclerView = (RecyclerView) parent;
     View container = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_text, null);
     return new TreeViewHolder(container);
   }
