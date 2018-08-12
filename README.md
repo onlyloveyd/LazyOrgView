@@ -86,3 +86,6 @@ addChildNode method.
 ![letter](screenshot/1.png)
 ![symbol](screenshot/2.png)
 
+## Support
+[Thanks for support](http://www.onlyloveyd.cn/about)
+
