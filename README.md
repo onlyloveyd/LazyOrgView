@@ -1,6 +1,8 @@
 # LazyOrgView
 A Simple Realization or OrgView Because I cannot find a valid solution unless Google OrgChart and some OrgChart.js.
 
+[中文版](http://www.onlyloveyd.cn/article/37)
+
 ## Installation
 ### Gradle
 **Step 1.** Add it in your root build.gradle at the end of repositories:
