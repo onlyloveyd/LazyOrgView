@@ -7,7 +7,6 @@ A Simple Realization or OrgView Because I cannot find a valid solution unless Go
 ```groovy
 allprojects {
     repositories {
-	      ...
 	      maven { url 'https://jitpack.io' }
     }
 }

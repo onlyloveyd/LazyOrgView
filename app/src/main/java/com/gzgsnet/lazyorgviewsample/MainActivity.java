@@ -54,8 +54,5 @@ public class MainActivity extends AppCompatActivity {
 	  LazyOrgConfig lazyOrgConfig = new LazyOrgConfig();
 	  lazyOrgConfig.setLineColor(Color.BLACK).setTextSize(12).setLineWidth(4).setTextBgRes(R.drawable.corner_shape);
 	  lazyOrgView.setLazyOrgConfig(lazyOrgConfig);
-
-
-
   }
 }
