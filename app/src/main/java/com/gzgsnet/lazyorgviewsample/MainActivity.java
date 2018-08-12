@@ -19,32 +19,36 @@ public class MainActivity extends AppCompatActivity {
 
       lazyOrgView = findViewById(R.id.rv_content);
 
-      TreeNode root = new TreeNode("贵阳供电局");
+      TreeNode root = new TreeNode("总经理");
       root.isRoot = true;
 
-      TreeNode A = new TreeNode("输电管理所");
-      TreeNode Aa = new TreeNode("线路运检一班");
-      TreeNode Ab = new TreeNode("线路运检二班");
-      TreeNode Ac = new TreeNode("线路运检三班");
-      TreeNode Ad = new TreeNode("线路运检四班");
-      TreeNode Ae = new TreeNode("线路运检五班");
+      TreeNode A = new TreeNode("副经理");
+      TreeNode Aa = new TreeNode("行政部");
+      TreeNode Ab = new TreeNode("财务部");
+      TreeNode Ac = new TreeNode("采购部");
 
-      TreeNode B = new TreeNode("输电管理所2");
-      TreeNode Ba = new TreeNode("线路运检一班1");
-      TreeNode Bb = new TreeNode("线路运检二班2");
+      TreeNode B = new TreeNode("副经理");
+      TreeNode Ba = new TreeNode("工程部");
+      TreeNode Bb = new TreeNode("生产部");
+
+	  TreeNode C = new TreeNode("副经理");
+	  TreeNode Ca = new TreeNode("营销部");
+	  TreeNode Cb = new TreeNode("方案造价部");
+	  TreeNode Cc = new TreeNode("售后服务部");
 
       root.addChildNode(A);
       root.addChildNode(B);
+      root.addChildNode(C);
 
       A.addChildNode(Aa);
       A.addChildNode(Ab);
       A.addChildNode(Ac);
-      A.addChildNode(Ad);
-      A.addChildNode(Ae);
 
       B.addChildNode(Ba);
       B.addChildNode(Bb);
 
+	  C.addChildNode(Ca);
+	  C.addChildNode(Cb);
 
 	  lazyOrgView.setRootNode(root);
 	  LazyOrgConfig lazyOrgConfig = new LazyOrgConfig();
