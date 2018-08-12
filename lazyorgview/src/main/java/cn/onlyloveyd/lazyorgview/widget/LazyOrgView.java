@@ -63,6 +63,8 @@ public class LazyOrgView extends RecyclerView {
      */
     private int maxLevel = 0;
 
+    private TreeNode rootNode;
+
 
     public LazyOrgView(Context context) {
         super(context);
@@ -92,12 +94,22 @@ public class LazyOrgView extends RecyclerView {
 	public void setLazyOrgConfig(LazyOrgConfig config){
 		isConfiged = true;
 		this.lazyOrgConfig = config;
+    	if (rootNode != null) {
+      		setRootNode(rootNode);
+		}
 	}
 
     public void setRootNode(TreeNode root) {
         if(!root.isRoot) {
             throw new IllegalArgumentException("传入的节点不是根结点");
         } else {
+        	mData.clear();
+        	maxLeaf =0;
+        	maxLevel = 0;
+        	depthCountMap.clear();
+
+        	this.rootNode = root;
+
             arrangeTree(root);
             addEmptyNode(root);
             convertToList(root);

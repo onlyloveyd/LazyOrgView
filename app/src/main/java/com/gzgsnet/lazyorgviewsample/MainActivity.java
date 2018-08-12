@@ -46,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
       B.addChildNode(Bb);
 
 
+	  lazyOrgView.setRootNode(root);
 	  LazyOrgConfig lazyOrgConfig = new LazyOrgConfig();
 	  lazyOrgConfig.setLineColor(Color.BLUE).setTextSize(18).setLineWidth(1).setTextBgColor(Color.GREEN).setTextBgRes(R.drawable.rect_shape);
 	  lazyOrgView.setLazyOrgConfig(lazyOrgConfig);
-      lazyOrgView.setRootNode(root);
+
 
 
   }
