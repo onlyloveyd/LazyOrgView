@@ -1,16 +1,16 @@
-package com.gzgsnet.constrainlayoutsample;
+package cn.onlyloveyd.lazyorgview.decoration;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * File Name: SpaceItemDecoration
- * Created Date: 2018/3/15 09:49
- * Enterprise Email: yidong@gz.csg.cn
- * Description:
- *
- * @author Mraz
+ * 文 件 名: SpaceItemDecoration
+ * 创建日期: 2018/08/11 07/59
+ * 邮   箱: onlyloveyd@gmail.com
+ * 博   客: https://onlyloveyd.cn
+ * 描   述：
+ * @author yidong
  */
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
     int horizontalSpace;

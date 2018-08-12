@@ -1,34 +1,42 @@
-package com.gzgsnet.constrainlayoutsample;
+package cn.onlyloveyd.lazyorgview.decoration;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import cn.onlyloveyd.lazyorgview.widget.LazyOrgConfig;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.onlyloveyd.lazyorgview.adapter.TreeAdapter;
+import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
+
 /**
- * File Name: DividerGridItemDecoration
- * Created Date: 2018/3/12 15:33
- * Enterprise Email: yidong@gz.csg.cn
- * Description:
- *
- * @author Mraz
+ * Êñá ‰ª∂ Âêç: LazyOrgView
+ * ÂàõÂª∫Êó•Êúü: 2018/08/11 07/59
+ * ÈÇÆ   ÁÆ±: onlyloveyd@gmail.com
+ * Âçö   ÂÆ¢: https://onlyloveyd.cn
+ * Êèè   Ëø∞Ôºö
+ * @author yidong
  */
 public class LineGridItemDecoration extends RecyclerView.ItemDecoration {
 
     private List<TreeNode> treeNodes;
     private Paint mPaint;
+    private LazyOrgConfig config;
 
-    public LineGridItemDecoration(Context context) {
+    public LineGridItemDecoration(Context context, LazyOrgConfig orgConfig) {
         treeNodes = new ArrayList<>();
+        this.config = orgConfig;
+
         mPaint = new Paint();
-        mPaint.setColor(Color.BLACK);
-        mPaint.setStrokeWidth(2);
-        mPaint.setStrokeCap(Paint.Cap.BUTT);
+        mPaint.setColor(config.getLineColor());
+        mPaint.setStrokeWidth(config.getLineWidth());
+        mPaint.setStrokeCap(Paint.Cap.ROUND);
         mPaint.setAntiAlias(true);
         mPaint.setDither(true);
         mPaint.setStyle(Paint.Style.STROKE);
@@ -80,7 +88,7 @@ public class LineGridItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     /**
-     * ªÒ»°itemviewœ‡∂‘”⁄RecyclerViewµƒleft
+     * ÔøΩÔøΩ»°itemviewÔøΩÔøΩÔøΩÔøΩÔøΩRecyclerViewÔøΩÔøΩleft
      *
      * @param superParent
      * @return

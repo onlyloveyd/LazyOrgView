@@ -1,4 +1,4 @@
-package com.gzgsnet.constrainlayoutsample;
+package cn.onlyloveyd.lazyorgview.decoration;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,12 +11,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 /**
- * File Name: DividerGridItemDecoration
- * Created Date: 2018/3/12 15:33
- * Enterprise Email: yidong@gz.csg.cn
- * Description:
- *
- * @author Mraz
+ * 文 件 名: LazyOrgView
+ * 创建日期: 2018/08/11 07/59
+ * 邮   箱: onlyloveyd@gmail.com
+ * 博   客: https://onlyloveyd.cn
+ * 描   述：
+ * @author yidong
  */
 public class DividerGridItemDecoration extends RecyclerView.ItemDecoration {
 
