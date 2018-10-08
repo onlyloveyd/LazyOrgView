@@ -1,19 +1,17 @@
 package cn.onlyloveyd.lazyorgview.decoration;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import cn.onlyloveyd.lazyorgview.widget.LazyOrgConfig;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.onlyloveyd.lazyorgview.adapter.TreeAdapter;
 import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
+import cn.onlyloveyd.lazyorgview.widget.LazyOrgConfig;
 
 /**
  * 文 件 名: LazyOrgView
@@ -21,6 +19,7 @@ import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
  * 邮   箱: onlyloveyd@gmail.com
  * 博   客: https://onlyloveyd.cn
  * 描   述：
+ *
  * @author yidong
  */
 public class LineGridItemDecoration extends RecyclerView.ItemDecoration {

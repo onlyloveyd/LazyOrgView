@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.onlyloveyd'
+group = 'com.github.onlyloveyd'
 
 android {
     compileSdkVersion 27

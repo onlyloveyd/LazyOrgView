@@ -8,6 +8,6 @@
     <cn.onlyloveyd.lazyorgview.widget.LazyOrgView
         android:id="@+id/rv_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

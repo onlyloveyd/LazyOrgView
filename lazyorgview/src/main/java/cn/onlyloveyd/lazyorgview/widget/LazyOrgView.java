@@ -5,15 +5,17 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import cn.onlyloveyd.lazyorgview.adapter.TreeAdapter;
-import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
-import cn.onlyloveyd.lazyorgview.decoration.LineGridItemDecoration;
-import cn.onlyloveyd.lazyorgview.decoration.SpaceItemDecoration;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
+
+import cn.onlyloveyd.lazyorgview.adapter.TreeAdapter;
+import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
+import cn.onlyloveyd.lazyorgview.decoration.LineGridItemDecoration;
+import cn.onlyloveyd.lazyorgview.decoration.SpaceItemDecoration;
 
 /**
  * 文 件 名: LazyOrgView
@@ -22,19 +24,22 @@ import java.util.Queue;
  * 邮   箱: onlyloveyd@gmail.com
  * 博   客: https://onlyloveyd.cn
  * 描   述：
+ *
  * @author yidong
  */
 public class LazyOrgView extends RecyclerView {
+
+    TreeAdapter.OnItemClickListener onItemClickListener;
 
     /**
      * 部分属性配置
      */
     private LazyOrgConfig lazyOrgConfig;
 
-	/**
-	 * 外部是否设置过LazyOrgConfig
-	 */
-	private boolean isConfiged = false;
+    /**
+     * 外部是否设置过LazyOrgConfig
+     */
+    private boolean isConfiged = false;
 
     /**
      * 整理后节点数据
@@ -81,34 +86,34 @@ public class LazyOrgView extends RecyclerView {
         init();
     }
 
-    private void init(){
-    	lazyOrgConfig = new LazyOrgConfig();
+    private void init() {
+        lazyOrgConfig = new LazyOrgConfig();
         mData = new ArrayList<>();
         depthCountMap = new HashMap<>();
         tmpQueue = new ArrayDeque<>();
     }
 
-	/**
-	 * 设置LazyOrgConfig
-	 */
-	public void setLazyOrgConfig(LazyOrgConfig config){
-		isConfiged = true;
-		this.lazyOrgConfig = config;
-    	if (rootNode != null) {
-      		setRootNode(rootNode);
-		}
-	}
+    /**
+     * 设置LazyOrgConfig
+     */
+    public void setLazyOrgConfig(LazyOrgConfig config) {
+        isConfiged = true;
+        this.lazyOrgConfig = config;
+        if (rootNode != null) {
+            setRootNode(rootNode);
+        }
+    }
 
     public void setRootNode(TreeNode root) {
-        if(!root.isRoot) {
+        if (!root.isRoot) {
             throw new IllegalArgumentException("传入的节点不是根结点");
         } else {
-        	mData.clear();
-        	maxLeaf =0;
-        	maxLevel = 0;
-        	depthCountMap.clear();
+            mData.clear();
+            maxLeaf = 0;
+            maxLevel = 0;
+            depthCountMap.clear();
 
-        	this.rootNode = root;
+            this.rootNode = root;
 
             arrangeTree(root);
             addEmptyNode(root);
@@ -123,6 +128,16 @@ public class LazyOrgView extends RecyclerView {
                     return mData.get(position).spanSize;
                 }
             });
+
+            treeAdapter.setOnItemClickListener(new TreeAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position, TreeNode node) {
+                    if (onItemClickListener != null) {
+                        onItemClickListener.onItemClick(position, node);
+                    }
+                }
+            });
+
             this.setAdapter(treeAdapter);
             this.setLayoutManager(gridLayoutManager);
             this.addItemDecoration(new LineGridItemDecoration(getContext(), lazyOrgConfig));
@@ -130,11 +145,21 @@ public class LazyOrgView extends RecyclerView {
         }
     }
 
-	/**
-	 * 获取最大叶子数，最大层次以及每层节点数
-	 * @param root
-	 */
-	private void arrangeTree(TreeNode root) {
+    /**
+     * 设置点击事件
+     *
+     * @param onItemClickListener
+     */
+    public void setOnItemClickListener(TreeAdapter.OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    /**
+     * 获取最大叶子数，最大层次以及每层节点数
+     *
+     * @param root
+     */
+    private void arrangeTree(TreeNode root) {
         if (root.getChildNodes().size() == 0) {
             ++maxLeaf;
         }
@@ -156,32 +181,34 @@ public class LazyOrgView extends RecyclerView {
             if (currentLevel > maxLevel) {
                 maxLevel = currentLevel;
             }
-			arrangeTree(treeNode);
+            arrangeTree(treeNode);
         }
     }
 
-	/**
-	 * 填充空白节点方便后续通过recyclerview展示
-	 * @param root
-	 */
-	private void addEmptyNode(TreeNode root) {
+    /**
+     * 填充空白节点方便后续通过recyclerview展示
+     *
+     * @param root
+     */
+    private void addEmptyNode(TreeNode root) {
         if (root.isLeaf() && root.getDepth() < maxLevel) {
             TreeNode node = new TreeNode(true);
             node.setDepth(root.getDepth() + 1);
-			addEmptyNode(node);
+            addEmptyNode(node);
             root.addChildNode(node);
         } else {
             for (int i = 0; i < root.getChildNodes().size(); i++) {
-				addEmptyNode((TreeNode) root.getChildNodes().get(i));
+                addEmptyNode((TreeNode) root.getChildNodes().get(i));
             }
         }
     }
 
-	/**
-	 * 计算节点Span值方便通过recyclerview展示
-	 * @param datas
-	 */
-	private void calSpan(List<TreeNode> datas) {
+    /**
+     * 计算节点Span值方便通过recyclerview展示
+     *
+     * @param datas
+     */
+    private void calSpan(List<TreeNode> datas) {
         for (TreeNode node : mData) {
             if (node.isLeaf()) {
                 node.spanSize = 1;
@@ -191,11 +218,12 @@ public class LazyOrgView extends RecyclerView {
         }
     }
 
-	/**
-	 * Tree转List，方便后续通过recyclerview展示
-	 * @param root
-	 */
-	private void convertToList(TreeNode root) {
+    /**
+     * Tree转List，方便后续通过recyclerview展示
+     *
+     * @param root
+     */
+    private void convertToList(TreeNode root) {
         tmpQueue.add(root);
         mData.add(root);
         while (tmpQueue.size() != 0) {
