@@ -1,5 +1,5 @@
 # LazyOrgView
-A Simple Realization or OrgView Because I cannot find a valid solution unless Google OrgChart and some OrgChart.js.
+A Simple Realization of OrgView Because I cannot find a valid solution unless Google OrgChart and some OrgChart.js.
 
 [中文版](http://www.onlyloveyd.cn/article/37)
 
