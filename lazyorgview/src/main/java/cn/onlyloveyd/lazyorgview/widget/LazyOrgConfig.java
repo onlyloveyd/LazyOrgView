@@ -4,15 +4,7 @@ import android.graphics.Color;
 
 import cn.onlyloveyd.lazyorgview.R;
 
-/**
- * 文 件 名: LazyOrgConfig
- * 创建日期: 2018/08/12 08/10
- * 邮   箱: onlyloveyd@gmail.com
- * 博   客: https://onlyloveyd.cn
- * 描   述：
- *
- * @author: yidong
- */
+
 public class LazyOrgConfig {
 
     /**

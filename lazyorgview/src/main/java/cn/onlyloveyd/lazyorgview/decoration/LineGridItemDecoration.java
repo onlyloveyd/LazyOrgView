@@ -3,8 +3,9 @@ package cn.onlyloveyd.lazyorgview.decoration;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +14,7 @@ import cn.onlyloveyd.lazyorgview.adapter.TreeAdapter;
 import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
 import cn.onlyloveyd.lazyorgview.widget.LazyOrgConfig;
 
-/**
- * 文 件 名: LazyOrgView
- * 创建日期: 2018/08/11 07/59
- * 邮   箱: onlyloveyd@gmail.com
- * 博   客: https://onlyloveyd.cn
- * 描   述：
- *
- * @author yidong
- */
+
 public class LineGridItemDecoration extends RecyclerView.ItemDecoration {
 
     private List<TreeNode> treeNodes;
@@ -86,12 +79,6 @@ public class LineGridItemDecoration extends RecyclerView.ItemDecoration {
         c.restore();
     }
 
-    /**
-     * ��ȡitemview�����RecyclerView��left
-     *
-     * @param superParent
-     * @return
-     */
     private float getItemLeftOfRecyclerView(RecyclerView superParent, View view) {
         if (view.getParent() == superParent) {
             return view.getLeft();

@@ -5,15 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * 文 件 名: TreeAdapter
- * 创建日期: 2018/08/11 07/59
- * 邮   箱: onlyloveyd@gmail.com
- * 博   客: https://onlyloveyd.cn
- * 描   述：
- *
- * @author yidong
- */
 public class TreeNode<T> implements Serializable {
     public boolean isRoot = false;
     public int spanSize = 1;

@@ -1,10 +1,11 @@
 package cn.onlyloveyd.lazyorgview.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +13,6 @@ import java.util.List;
 import cn.onlyloveyd.lazyorgview.R;
 import cn.onlyloveyd.lazyorgview.widget.LazyOrgConfig;
 
-/**
- * 文 件 名: TreeAdapter
- * 创建日期: 2018/08/11 07/59
- * 邮 箱: onlyloveyd@gmail.com
- * 博 客: https://onlyloveyd.cn
- * 描 述：
- *
- * @author yidong
- */
 public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.TreeViewHolder> {
 
     private List<TreeNode> data;

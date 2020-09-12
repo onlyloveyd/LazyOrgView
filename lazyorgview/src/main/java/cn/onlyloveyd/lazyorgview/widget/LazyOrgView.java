@@ -1,10 +1,11 @@
 package cn.onlyloveyd.lazyorgview.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -17,16 +18,7 @@ import cn.onlyloveyd.lazyorgview.adapter.TreeNode;
 import cn.onlyloveyd.lazyorgview.decoration.LineGridItemDecoration;
 import cn.onlyloveyd.lazyorgview.decoration.SpaceItemDecoration;
 
-/**
- * 文 件 名: LazyOrgView
- * 创 建 人: 易冬
- * 创建日期: 2018/08/11 07/59
- * 邮   箱: onlyloveyd@gmail.com
- * 博   客: https://onlyloveyd.cn
- * 描   述：
- *
- * @author yidong
- */
+
 public class LazyOrgView extends RecyclerView {
 
     TreeAdapter.OnItemClickListener onItemClickListener;
@@ -39,7 +31,7 @@ public class LazyOrgView extends RecyclerView {
     /**
      * 外部是否设置过LazyOrgConfig
      */
-    private boolean isConfiged = false;
+    private boolean isOutConfig = false;
 
     /**
      * 整理后节点数据
@@ -97,7 +89,7 @@ public class LazyOrgView extends RecyclerView {
      * 设置LazyOrgConfig
      */
     public void setLazyOrgConfig(LazyOrgConfig config) {
-        isConfiged = true;
+        isOutConfig = true;
         this.lazyOrgConfig = config;
         if (rootNode != null) {
             setRootNode(rootNode);
