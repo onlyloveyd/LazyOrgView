@@ -17,7 +17,7 @@ allprojects {
 ```groovy
 
 dependencies {
-    implementation 'com.github.onlyloveyd:LazyOrgView:v1.1'
+    implementation 'com.github.onlyloveyd:LazyOrgView:v1.2'
 }
 ```
 
